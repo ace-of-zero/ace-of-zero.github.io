@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- This website was built from a bootstrap template from startbootstrap.com, available here https://startbootstrap.com/theme/resume -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Frankie's Portfolio</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- Chart.js library + Date-Time -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/luxon@^2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@^1"></script>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Frankie LoPinto</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/spotlight.jpg" alt="Spotlight Image" /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Who Am I?">Who Am I?</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Playing Statistics">Playing Statistics</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Defective and Effective">Defective and Effective</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Generative Art">Side Gig - Art and AI</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- Who Am I?-->
+            <section class="resume-section" id="Who Am I?">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        Frankie
+                        <span class="text-primary">LoPinto</span>
+                    </h1>
+                    <div class="subheading mb-5">
+                        Let's level-up our insights, together!
+                    </div>
+                    <p class="lead mb-5">I am a gaming industry veteran with a solid foundation in data analysis and a proven track record of providing impactful solutions, including advanced interactive dashboards, complex SQL queries, and ETL pipelines, to answer novel business questions. I am committed to continuous learning and adapting to new challenges, and I am confident that my blend of engineering and analytical skills positions me as an ideal candidate to help advance the data-driven initiatives of your team.</p>
+                    <p class="lead mb-5">Feel free to scroll down and check out some of my favorite projects I've had the pleasure of working on.</p>
+                    <div class="social-icons">
+                        <a class="social-icon" href="https://www.linkedin.com/in/fjlopinto"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-icon" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><i class="fa-solid fa-headphones"></i></a>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Playing Statistics-->
+            <section class="resume-section" id="Playing Statistics">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Playing Statistics</h2>
+                    <div class="subheading mb-5">
+                        Identifying the strongest gameplay strategies with machine learning.
+                    </div><p>Online card games like Hearthstone, Magic: The Gathering Arena, and Legends of Runeterra involve some very complex gameplay. Pro players and enthusiasts alike spend hours reviewing deck builds, win rates, and play strategies based on personal experience and publicly available records. This data is even more critical to the designers of such games. When I received the request to develop a dashboard to help a certain group of game designers make informed decisions when balancing gameplay, I knew I had to give it my all! After many hours of planning, learning, data cleaning and engineering, the final dashboard was received very well. One of its key features works kind of like this:</p>
+                    <div class="side-by-side">
+                        <table id="MetagameTable" class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Strategy Name</th>
+                                    <th scope="col">Popularity (% of Total Decks)</th>
+                                    <th scope="col">Win Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="highlighted-row">
+                                    <td>Strategy 1</td>
+                                    <td>11.3%</td>
+                                    <td>48%</td>
+                                </tr>
+                                <tr>
+                                    <td>Strategy 2</td>
+                                    <td>9.34%</td>
+                                    <td>51%</td>
+                                </tr>
+                                <tr>
+                                    <td>Strategy 3</td>
+                                    <td>5.22%</td>
+                                    <td>42%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <canvas id="MetagameChart" width="400" height="200"></canvas>
+                    <p></p>
+                    <p>I fabricated this data for this example, but the data in the real McCoy comes from a live stream of game records. Each record includes a tokenized player ID, opponent ID, list of cards in the player's deck, and a few other details about the match. After cleaning and connecting this data stream to other necessary information, I set up an automated clustering algorithm in Python that identifies the top strategies that are being played based on the contents of each deck. These top strategies are given nicknames and assigned to each of the game records before being neatly wrapped back up into a series of visualizations. The example above shows how users may select a strategy of interest from the full list and have the chart react to show the strategy's popularity over time. The full product also includes a filterable matchup grid displaying 1v1 game outcome predictions, average decklists and card stats, and randomly sampled deck examples from each strategy.</p>
+                    <p></p>
+                    <p>The automation and python scripting behind this dashboard makes it my most complex business solution to date, and I have been thrilled with the feedback. The game designers have already asked for supplemental expansions to include additional game modes and adjacent gameplay insights!</p>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Defective and Effective-->
+            <section class="resume-section" id="Defective and Effective">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Defective and Effective</h2>
+                    <div class="subheading mb-5">
+                        Parsing millions of defect points to create executive-level reports
+                    </div><p>My career first started in the world of physical product engineering, but I very quickly learned that my passion truly lied within the analysis of the massive amounts of data generated throughout game production. This project started when the team I was working with requested a way to use customer complaint data to identify trends in product defects and factory performance. By working with the customer service team, I was able to establish a process by which product complaint data points (created when a customer reaches out about a defective product they received) are cleaned and stored in a SQL database. I combined this new data stream with financial data stored elsewhere on the database and illustrated our new trend-tracking capabilities with a dashboard featuring a chart that looked something like this:</p>
+                    <canvas id="DefectChart" width="400" height="200"></canvas>
+                    <p></p>
+                    <p>The data is 100% fictional for this example, of course, but it recreates the aha! moment I felt when the data first confirmed for me a noticeable lag between orders and complaints, synchronized to the release dates of the biggest product releases.</p>
+                    <p>My manager was thrilled with the possibilities of this new tool and requested a detailed weekly report that could be used to compare major product releases to eachother. This report is now shared weekly with business managers as a status update on product quality, and has grown considerably since its initial scope. Inspired by this success, I went on to create a new dashboard to present details related to individual product performance, which has successfully been used to identify trends within the defects themselves. The insights I have pulled from these dashboards has been used to initiate process improvements at factories to reduce defects at the source, as well as to improve upcoming products still in the development phase.</p>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Generative Art-->
+            <section class="resume-section" id="Generative Art">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Side Gig - Art and AI</h2>
+                    <div class="subheading mb-5">Learning and Illustrating With the Tools of the Future</div>
+                    <p>In addition to the quantitative applications of machine learning and artificial intelligence, I am deeply and personally interested in the artistic side of the field. Cartoon artwork has been a cherished outlet for my imagination throughout my life, and when I first learned about Stable Diffusion, I was thrilled by the possibilities! Armed with a gaming PC, several insightful Github repos, and my own technical aptitude, I set up a local instance of the algorithm, configured web UI access on my iPad Pro, and began creating as man and machine. I didn't sleep for almost three nights in a row. Since getting back on a regular sleep cycle, I have successfully trained several models of my own to suit the specific purposes of my artistic endeavors. Consider the below, for example:</p>
+                    <div id="imageGallery">
+                        <button id="prev" onclick="moveSlide(-1)">&#10094;</button>
+                        <div id="slides">
+                            <img src="assets/img/spotlight.jpg" style="display: block;">
+                            <img src="assets/img/photoreal.jpg" style="display: none;">
+                            <img src="assets/img/illustrative.jpg" style="display: none;">
+                            <img src="assets/img/mspaint.jpg" style="display: none;">
+                        </div>
+                        <button id="next" onclick="moveSlide(1)">&#10095;</button>
+                    </div>                    
+                    <p></p>
+                    <p>These images of my likeness were generated from text by the Stable Diffusion XL model, fine-tuned with a LoRA trained on 30 photographs that I shot and captioned for the purpose. My next goal is to train a model on my own artistic style and use it in my creation pipeline as a sort of robotic assistant to speed up the inking and rough color layers. If I can get this process down, I might even have time to animate!</p>
+                    <p></p>
+                    <p>Fully leaning into this frontier of study has benefitted my understanding of AI/ML greatly, as well. Understanding the process of training diffusion models to learn new concepts has illuminated new corners of machine vision for me; I am currently working on training on a YOLOv8 model that can be used to identify unrealeased trading cards based on game concepts alone. Inspired by the applications of generative art, I've also dipped my toes into open-source LLMs like Llama, Mistral, and Phi. While no open source model can wholistically outmatch GPT-4 yet, the application of a smaller LLM on a device like a Raspberry Pi is a thrilling possibility.</p>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <section class="resume-section" id="Thank You">
+                <div class="resume-section-content">
+                    <div class="subheading mb-5">Thank you!</div>
+                    <p class="lead mb-5">Thanks for taking the time to read about some of my favorite projects and interests! If you would like to hear more about my experience and ambitions, I would very much like to speak with you over LinkedIn or in an official interview. I hope to hear from you soon!</p>
+                    <div class="social-icons">
+                        <a class="social-icon" href="https://www.linkedin.com/in/fjlopinto"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-icon" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><i class="fa-solid fa-headphones"></i></a>
+                    </div>
+            </section>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
